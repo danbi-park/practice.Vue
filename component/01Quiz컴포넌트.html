@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js" charset="utf-8"></script>
+    <script>
+    window.onload = function(){
+      // {template: '<footer>todo footer입니다.</footer>'} //옵션
+      // var str = function(){
+      //   var str = '';
+      //   for(var i =0; i<10;i++){
+      //     str += '<footer>todo footer' + ++i + '입니다.</footer>'
+      //   }
+      //   return str;
+      // }
+
+
+
+    Vue.component('todo-footer',
+     {template: '<footer>todo footer 입니다.</footer>'}
+  );
+
+    new Vue({
+      el: '#app',
+      data : {message:'parent component'},
+      components: {'local-div': { template : '<div>지역 컴포다</div>'}}
+    });
+  }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      {{message}}
+      <todo-footer></todo-footer>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue instance lifeCycle</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js" charset="utf-8"></script>
+    <script>
+    window.onload = function(){
+      new Vue({
+        el: '#app',
+        data: {message: 'Hello Vue.js!'}, // 중괄호안에는 객체(키값)가 들어감. //지역변수
+          beforeCreate: function(){console.log('beforeCreate');},
+          created: function(){console.log('created');},
+          beforeMount: function(){console.log('beforeMount');},
+          mounted: function(){console.log('mounted'); this.message = 'mounted'},
+          beforeUpdate: function(){console.log('beforeUpdate');},
+          updated: function(){console.log('updated');}
+      });
+    }
+
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      {{message}}
+    </div>
+  </body>
+</html>
