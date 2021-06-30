@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue components 등록퀴즈</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js" charset="utf-8"></script>
+    <script>
+    window.onload = function(){
+
+    new Vue({
+      el: '#app',
+      data : {hello:'안녕', live_city:'부산', p_id:'001'}
+    });
+  }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+    <p v-bind:id="p_id">{{hello}}</p>
+    <p>내가 살고 있는 곳은 {{live_city}} 입니다. </p>
+    <input type="text" name="live_city" v-model="live_city">
+    </div>
+
+  </body>
+</html>
