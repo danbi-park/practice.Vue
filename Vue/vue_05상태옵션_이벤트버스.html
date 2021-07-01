@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>관계없는 컴포넌트 간의 데이터 통신</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js" charset="utf-8"></script>
+    <script>
+      window.onload = function(){
+      //가상의 뷰 메모리에 올라와 있는 변수로 쓰임. (props안써도 되지만, 헷갈리기 쉽다. → Vuex(내역관리))
+        var eventBus = new Vue(); //vue 두개
+
+
+        Vue.component('child-component', {
+          template: '<div>하위 컴포넌트 영역.<br><button v-on:click="showLog">Show</button></div>',
+          methods: {
+            showLog: function(){
+              eventBus.$emit('triggerEventBus', 100);
+            }
+          }
+        });
+
+       var app = new Vue({
+         el: '#app',
+         created: function(){
+                  //emit에서 이벤트 전달받고 그 값으로 function?
+           eventBus.$on('triggerEventBus', function(val){
+             console.log('이벤트 전달 받음. 전달 받은 값: ', val)
+           });
+         }
+       });
+
+      }
+
+    </script>
+  </head>
+
+  <body>
+    <div id="app">
+      <child-component></child-component>
+    </div>
+
+  </body>
+</html>

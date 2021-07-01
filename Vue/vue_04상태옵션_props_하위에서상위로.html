@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>하위에서 상위로 이벤트를 전달할 때</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js" charset="utf-8"></script>
+  <script>
+  window.onload = function(){
+  //전역은 하위만 적용되기 때문에 아래의 new vue 필요
+    Vue.component('child-component',{
+      template : '<button v-on:click="showLog">show</button>', //2 대체? 연결됨
+                            //3 클릭 시 바로 아래 methods에 있는 showlog가 실행
+
+                                //$emit은 event를 줄여서 쓰는 거임(조상에게 신호)
+      methods: {showLog: function(){this.$emit('show-log');}}
+              //4 매칭되어 함수를 실행   //5. div에 있는 v-on과 연결 show-log로 신호
+    });
+
+
+//root component로 인해 위의 전역 컴포넌트가 하위로 바뀜 (얘가 상위컴포넌트임)
+    new Vue({
+      el: '#app',
+      data: {message:'from Parent'},
+      methods: {printText: function(){console.log('child received')}}
+                //6 신호받고 console에 child received 출력
+    });
+}
+
+//하위 컴포넌트에서 상위 컴포넌트로 신호를 올려보내면 상위 컴포넌트의 매서드를 실행할 수 있다.
+//이벤트 발생:   $emit('이벤트명')
+//이벤트 수신:   v-on:이벤트명="상위 컴포넌트의 메서드"
+    </script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- 1 child-component가 위에 template로 연결됨 -->
+      <child-component v-on:show-log="printText"></child-component>
+                <!-- 6 emit에서 신호받고 show-log=printText로 이동 (조상) -->
+    </div>
+
+  </body>
+</html>

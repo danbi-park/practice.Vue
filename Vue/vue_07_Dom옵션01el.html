@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js" charset="utf-8"></script>
+    <script>
+      window.onload = function(){
+        var nvm = new Vue({
+          el: 'div#markup',
+          template:'<h2>{{markup}}</h2>',
+          data:{markup: '새로운 마크업'}
+        });
+      }
+
+    </script>
+  </head>
+
+  <body>
+    <div id="markup">
+      <h1>Hello, Markup</h1>
+    </div>
+
+  </body>
+</html>
