@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js" charset="utf-8"></script>
+    <script>
+      window.onload = function(){
+
+      }
+
+    </script>
+  </head>
+
+  <body>
+    <div id="app">
+        <last-feed v-once v-bind:comment="msg"></last-feed>
+    </div>
+
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {msg: '다음주엔 계속 비가와요'},
+        components: {
+          'last-feed': {
+            template: '<div>{{comment}}</div>',
+            props: ['comment']
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

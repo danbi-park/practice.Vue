@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js" charset="utf-8"></script>
+
+  </head>
+
+  <body>
+    <div id="app">
+      <a href="http://google.com" v-bind:href="href" >한빛미디어</a>
+      <div v-bind:id="dynamicId"></div>
+      <button type="button" name="button" v-bind:disabled="isButtonDisabled">button</button>
+      <button type="button" name="button" :disabled="isButtonDisabled">button</button>
+      <button type="button" name="button" :disabled="isButtonDisabled">{{isButtonDisabled?'Disabled':'Button'}}</button>
+
+    </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {dynamicId: 'first_div', isButtonDisabled: true, href: 'http://www.hanbit.co.kr'}
+    });
+
+  </script>
+  </body>
+</html>
