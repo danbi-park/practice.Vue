@@ -1,0 +1,24 @@
+<script src="https://unpkg.com/vue" charset="utf-8"></script>
+<body>
+  <div id="app">
+    <dl>
+        <template v-for="item in items">
+          <dd>아이디: {{ item.id }}</dd>
+          <dt>메세지: {{ item.msg }}</dt>
+        </template>
+    </dl>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+          items: [
+          { id: 1, msg: 'Hello,Vue'},
+          { id: 2, msg: 'Hello,React'},
+        ]
+      }
+    });
+  </script>
+
+</body>

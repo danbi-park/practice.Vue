@@ -1,0 +1,21 @@
+<script src="https://unpkg.com/vue" charset="utf-8"></script>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="item in items">{{ item.message }}</li>
+    </ul>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+          items: [
+          { message: "vue.js"},
+          { message: "React.js"}
+        ]
+      }
+    });
+  </script>
+
+</body>

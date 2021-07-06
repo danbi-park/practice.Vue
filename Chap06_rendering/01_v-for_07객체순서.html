@@ -1,0 +1,23 @@
+<body>
+<script src="https://unpkg.com/vue" charset="utf-8"></script>
+<!-- 객체를 이용해 순회할 때 순서를 함께 전달 -->
+  <div id="app">
+    <ul v-for="obj in arr" :style="{listStyle:'none'}">
+      <li v-for="(value,key,index) in obj">{{index+1}}. {{key}}:{{value}}</li>
+    </ul>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        arr : [
+            {firstName: "Danbi", lastName: "Park", age: 25},
+            {first: "nani", lName: "yoyo", age: 35},
+            {Name: "kira", last: "Lee", age: 45}
+          ]
+        }
+      });
+  </script>
+
+</body>

@@ -1,0 +1,22 @@
+<script src="https://unpkg.com/vue" charset="utf-8"></script>
+<body>
+  <div id="app">
+    <ul v-for="obj in arr" :style="{listStyle:'none'}">
+      <li v-for="(value, key) in obj">{{key}}:{{value}}</li>
+    </ul>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        arr : [
+            {firstName: "Danbi", lastName: "Park", age: 25},
+            {first: "nani", lName: "yoyo", age: 35},
+            {Name: "kira", last: "Lee", age: 45}
+          ]
+        }
+      });
+  </script>
+
+</body>
