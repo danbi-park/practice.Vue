@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://unpkg.com/vue" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <span v-if="id == 0">값이 0입니다.</span>
+      <!-- v-else는 조건이 들어가지 않는다. -->
+      <span v-else>값이 0이 아닙니다.</span>
+    </div>
+
+    <script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            id:0
+        }
+    });
+
+    </script>
+  </body>
+</html>

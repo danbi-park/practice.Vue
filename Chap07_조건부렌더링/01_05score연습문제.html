@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://unpkg.com/vue" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      학점
+      <span v-if="score >= 90">A</span>
+      <span v-else-if="score >= 80">B</span>
+      <span v-else-if="score >= 70">C</span>
+      <span v-else-if="score >= 60">D</span>
+      <span v-else>F</span>
+      입니다.
+    </div>
+
+    <script>
+    var input = parseInt(prompt('점수를 입력하세요'));
+    var app = new Vue({
+        el: "#app",
+        data: {
+            score:input
+        }
+    });
+
+    </script>
+  </body>
+</html>

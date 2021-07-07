@@ -1,0 +1,33 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+<script src="https://unpkg.com/vue" charset="utf-8"></script>
+
+<body>
+  <div id="app">
+    <ul :style="{listStyle:'none'}">
+      <li v-for="entry in orderedUsers">{{ entry.name }}</li>
+    </ul>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        users: [{
+          id: 1,
+          name: 'Vue',
+          last_login: new Date(2017, 11, 8, 23, 12, 11)
+        }, {
+          id: 2,
+          name: 'JavaScript',
+          last_login: new Date(2017, 11, 6, 23, 12, 11)
+        }]
+      },
+      computed: {
+        orderedUsers: function() {
+          return _.orderBy(this.users, 'name')
+        }
+      }
+    });
+  </script>
+</body>
