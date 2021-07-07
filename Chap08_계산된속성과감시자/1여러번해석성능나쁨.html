@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- NOTE: 인스턴스 템플릿을 여러번 해석하면 성능이 좋지 않다. -->
+    <script src="https://unpkg.com/vue" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <div id="example">
+      <!-- 인스턴스 템플릿 -->
+      {{message.split('').reverse().join('')}}
+    </div>
+
+    <script>
+      <!-- 뷰 인스턴스 -->
+    var example = new Vue({
+        el: "#example",
+        data: {
+          message: 'hello Vue.js world'
+        }
+    });
+
+    </script>
+  </body>
+</html>
