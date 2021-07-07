@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  <script src="https://unpkg.com/vue" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <div id="example">
+    <p>캐싱된 시기: {{now}}</p>
+    <p ref="tester"></p>
+    </div>
+
+    <script>
+
+    var app = new Vue({
+        el: "#example",
+        computed: {
+          now: function(){
+            return Date.now()
+          }},
+          methods: {show: function(){
+          //this.$refs.tester.innerHTML = Date.now() //캐싱되기 전
+            this.$refs.tester.innerHTML = this.now //캐싱함 - 성능 개선
+          }}
+    });
+
+    </script>
+  </body>
+</html>
