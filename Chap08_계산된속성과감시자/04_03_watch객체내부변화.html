@@ -1,0 +1,29 @@
+<script src="https://unpkg.com/vue"></script>
+<body>
+<div id="app">
+  <span>{{ a }}</span>
+</div>
+<script>
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      //객체리터럴 a
+      a: {
+        msg: 'new Message',
+        since: 2017
+      }
+    },
+    watch: {
+      a: {
+        // 객체 리터럴의 상태변화가 일어날 때 동작하는 함수.
+        handler: function(val, oldVal) {
+          console.log(val);
+          console.log(oldVal);
+        },
+        //객체 내부의 상태변화까지 보겠다.
+        deep: true
+      }
+    }
+  });
+</script>
+</body>

@@ -20,9 +20,10 @@
           now: function(){
             return Date.now()
           }},
-          methods: {show: function(){
+          methods: {
+            show: function(){
           //this.$refs.tester.innerHTML = Date.now() //캐싱되기 전
-            this.$refs.tester.innerHTML = this.now //캐싱함 - 성능 개선
+            this.$refs.tester.innerHTML = this.now //캐싱함(저축) -> 성능 개선
           }}
     });
 

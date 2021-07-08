@@ -1,0 +1,29 @@
+<script src="https://unpkg.com/vue"></script>
+<body>
+<div id="app">
+  <span>{{ a }}</span>
+</div>
+<script>
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      a: {
+        b:4,
+        c:3
+      },
+      b: 4
+    },
+    watch: {
+      //객체 a에 있는 b를 본다면 홑따옴표를 붙여줘야함! 
+      'a.b': function(val, oldVal) {
+          console.log(new_val);
+          console.log(old_Val);
+        },
+      b: function(val, oldVal) {
+          console.log(new_val);
+          console.log(old_Val);
+       }
+     }
+  });
+</script>
+</body>
