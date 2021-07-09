@@ -1,6 +1,7 @@
 <script src="https://unpkg.com/vue"></script>
 <div id="example-2">
     <button v-on:click="greet">Greet</button>
+    <!-- <button @click="greet">Greet</button> 10-10번이랑 연계 -->
 </div>
 <script>
     var example2 = new Vue({
@@ -9,14 +10,17 @@
             name: 'Vue.js'
         },
         methods: {
+          //greet : 이벤트리스너 event:!click을 이어주는 임의의 매개변수
             greet: function (event) {
                 alert('Hello ' + this.name + '!')
                 if (event) {
                     alert(event.target.tagName)
+                    //event가 있는 곳의 태그이름 -> button
                 }
             }
         }
     });
 
+    //이벤트 없음.
     example2.greet() // => 'Hello Vue.js!'
 </script>

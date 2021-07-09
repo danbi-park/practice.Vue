@@ -1,13 +1,12 @@
 <script src="https://unpkg.com/vue"></script>
 <div id="example-2">
+                <!-- 여기에 미리 매게 변수를 넣음 (이거빼고는 10-9랑 동일)-->
     <button v-on:click="greet($event)">Greet</button>
 </div>
 <script>
     var example2 = new Vue({
         el: '#example-2',
-        data: {
-            name: 'Vue.js'
-        },
+        data: {name: 'Vue.js'},
         methods: {
             greet: function (event) {
                 alert('Hello ' + this.name + '!')

@@ -1,5 +1,6 @@
 <script src="https://unpkg.com/vue"></script>
 <div id="example-4">
+                            <!-- 매개변수 두개 -->
     <button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
 </div>
 <script type="text/javascript">
@@ -9,6 +10,7 @@
             warn: function (message, event) {
                 // 이제 네이티브 이벤트에 접근할 수 있습니다.
                 if (event) event.preventDefault()
+                //event가 없으면 적용안됨. 
                 alert(message)
             }
         }

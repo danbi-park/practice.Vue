@@ -1,7 +1,8 @@
 <meta charset="utf-8">
 <script src="https://unpkg.com/vue"></script>
+<!-- NOTE: input text에 value값으로 들어가는 것임-->
 <div id="app">
-    <input type="text" v-model="message">
+    <input type="text" v-bind:value="message">
 </div>
 <script>
     var app = new Vue({
