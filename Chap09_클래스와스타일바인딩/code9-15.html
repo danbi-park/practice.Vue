@@ -1,0 +1,18 @@
+<script src="https://unpkg.com/vue"></script>
+<!-- NOTE: Vue.js가 브라우저를 식별한 후 css 속성에 벤터 프리픽스를 추가해 dom에 자동으로 반영함 -->
+<div id="app">
+    <p v-bind:style="styleObject">1</p>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        computed: {
+            styleObject: function () {
+                return {
+                    'margin-before': '4em',
+                    background: 'blue'
+                };
+            }
+        }
+    });
+</script>

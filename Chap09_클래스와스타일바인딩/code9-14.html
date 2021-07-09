@@ -1,0 +1,20 @@
+<script src="https://unpkg.com/vue"></script>
+<!-- NOTE: 인라인 스타일 그룹이 2개 있을 때 이들을 리터럴 배열에 제공하면 가장 나중에 나온 인라인 스타일 그룹이 먼저 나온 그룹의 속성을 무시. 즉 서로 속성이 겹치면 맨 나중에 있는 애가 적용된다는 뜻임. 근데 backgroundColor가 baseStyles에 추가되면 적용됨. 왜냐면 overridingStyles에 없기 때문. -->
+<div id="app">
+    <div v-bind:style="[baseStyles, overridingStyles]">abc</div>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            baseStyles: {
+                color: 'red',
+                fontSize: '13px'
+            },
+            overridingStyles: {
+                color: 'green',
+                fontSize: '9px'
+            }
+        }
+    });
+</script>

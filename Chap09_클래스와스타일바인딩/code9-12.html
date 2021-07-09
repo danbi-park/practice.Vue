@@ -1,0 +1,15 @@
+<script src="https://unpkg.com/vue"></script>
+<div id="app">
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px',backgroundColor: bgCol}">abc</div>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            activeColor: 'red',
+            fontSize: 30,
+            //배경색 추가
+            bgCol: ''
+        }
+    });
+</script>

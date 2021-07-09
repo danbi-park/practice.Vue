@@ -1,0 +1,13 @@
+<body>
+  <script src="https://unpkg.com/vue" charset="utf-8"></script>
+
+  <div id="app" >
+    <div v-for="i in 255" :style="{backgroundColor: 'rgb('+ i + ',' + i + ',' + i + ')', 'height': '2px'}"></div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: "#app"
+    });
+  </script>
+</body>
