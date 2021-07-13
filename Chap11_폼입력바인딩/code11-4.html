@@ -1,13 +1,26 @@
 <script src="https://unpkg.com/vue"></script>
 <div id="app">
-    <input type="checkbox" id="checkbox" v-model="checked">
-    <label for="checkbox">{{ checked }}</label>
+    <input type="checkbox" id="checkbox" v-model="checked" v-bind:value="state" v-on:click="change">
+    <label for="checkbox">{{ checked }} / {{state}}</label>
 </div>
 <script>
-    new Vue({
+    vm = new Vue({
         el: "#app",
         data: {
-            checked: true
-        }
+            checked: false,
+            state: 'off'
+        },
+        methods: { change: function(){
+          if(this.checked) {this.state='off';}else{this.state='on'}
+          //this.checked == true? this.state = 'off' : this.state = 'on'
+          //this.state = (this.checked) ? 'off' : 'on'
+          console.log(vm.checked + '/' + vm.state )
+        }}
     });
 </script>
+
+<!-- <script>
+this.checked==true? this.state= 'on' : this.state = 'off'
+if(checkbox.checked) {this.state = 'on'}
+else {this.state =  'off'}
+</script> -->
