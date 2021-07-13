@@ -4,7 +4,17 @@
     <meta charset="utf-8">
     <script src="https://unpkg.com/vue"></script>
     <title></title>
-
+<script>
+window.onload = function() {
+new Vue({
+     el: "#app",
+     data: {
+       gender : "여",
+       genderOpt: ['여','남']
+     }
+ });
+}
+</script>
 <style>
   #mobile input,select{
     width: 80px;
@@ -14,8 +24,7 @@
   </head>
   <body>
 
-<div id="app">
-  <form class="" action="index.html" method="post">
+  <form id="app" action="index.html" method="post">
     <label for="id">ID: </label><input id="id" type="text" :value="id"><br />
     <label for="name">이름: </label><input id="name" type="text" :value="name"><br />
     <label for="pw">비밀번호: </label><input id="pw" type="text" :value="pw"><br />
@@ -30,12 +39,10 @@
     </div>
 
 <!-- 성별 -->
-    <div id="gender">
-      성별:
-      <label for="item" v-for="item in genderOpt" :style="{marginRight:'30px'}">{{item}}
-      <input type="radio" v-model="gender" :value="item" :id="item" name="gender" >
-      </label>
-    </div>
+성별:
+<label :for="item" v-for="item in genderOpt" :style="{marginRight: '30px'}">{{item}}
+  <input type="radio" v-model="gender" :value="item" :id="item" name="gender">
+</label>
 
 <!-- 전화번호 -->
     <div id="mobile" >
@@ -54,7 +61,7 @@
     <input type="reset" value="취소">
 
   </form>
-</div>
+
 <script>
   new Vue({
       el: "#app",
@@ -72,16 +79,11 @@
   });
 
  new Vue({
-      el: "#app",
+      el: "#gender",
       data: {
         gender : "여",
-        genderOpt: ["여","남"]
-      },
-      methods: {
-        first: '010'
-          }
-
-        }}
+        genderOpt: ['여','남']
+      }
   });
 </script>
 

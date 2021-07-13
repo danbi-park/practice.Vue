@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://unpkg.com/vue" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <div id="app">
+  <!-- v-if와 기능이 유사 : 조건이 맞으면 보여주고 아니면 보여주지 않는다. -->
+      <span v-show="power">전원이 켜졌습니다.</span>
+    </div>
+
+    <script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            power: true
+        }
+    });
+
+    </script>
+  </body>
+</html>
