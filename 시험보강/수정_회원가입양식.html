@@ -16,9 +16,9 @@
             genderOpt: ['여','남'],
             mobile: "010",
             mobileOpt: [
-                { text: '016', value: '016' },
+                { text: '010', value: '010' },
                 { text: '011', value: '011' },
-                { text: '010', value: '010' }
+                { text: '016', value: '016' }
             ]
         },
         methods: {
@@ -35,12 +35,14 @@
                 name.focus();
                 return;
             }
+
             var pw = this.$refs.pw;
             if(pw.value == '') {
                 alert('비밀번호를 확인해주세요');
                 pw.focus();
                 return;
             }
+
             var repw = this.$refs.repw;
             if(repw.value == '') {
                 alert('비밀번호를 재확인해주세요');
@@ -56,14 +58,24 @@
               return;
             }
 
+            // 구현안됨
+            // var hobby = this.$refs.hobby;
+            // if(hobby.checked) {
+            // }else{
+            //     alert('취미를 체크해주세요');
+            //     hobby.focus();
+            //     return;
+            // }
+
             var mobile1 = this.$refs.mobile1;
-            if(mobile1.value == '') {
+            if(mobile1.value == '' || mobile1.value.length < 4) {
                 alert('휴대폰 앞자리를 확인해주세요');
                 mobile1.focus();
                 return;
             }
+
             var mobile2 = this.$refs.mobile2;
-            if(mobile2.value == '') {
+            if(mobile2.value == '' || mobile2.value.length < 4) {
                 alert('휴대폰 뒷자리를 확인해주세요');
                 mobile2.focus();
                 return;
@@ -90,15 +102,15 @@
     width: 60px;
   }
   button{
-    width: 70px;
-    margin: 10px 10px 10px 0px;
+    width: 100px;
+    margin: 10px 10px 10px 20px;
     background: rgb(232, 232, 232);
     border: none;
     border-radius: 10px;
     padding:5px;
     cursor: pointer;
   }
-  input{
+  input, select{
     border-radius: 10px;
     border: 1px solid gray;
   }
@@ -108,7 +120,7 @@
 <body>
   <form id="join" name="frm" action="index.html" method="post">
     <fieldset>
-      <legend>회원가입</legend>
+      <legend>회원가입📝</legend>
       <table>
         <tr>
           <td>ID</td>
@@ -129,12 +141,8 @@
         <tr>
           <td>취미</td>
           <td>
-              <input type="checkbox" id="A" value="A" v-model="hobby">
-              <label for="A" :style="{marginRight: '30px'}">A</label>
-              <input type="checkbox" id="B" value="B" v-model="hobby">
-              <label for="B" :style="{marginRight: '30px'}">B</label>
-              <input type="checkbox" id="C" value="C" v-model="hobby">
-              <label for="C" :style="{marginRight: '30px'}">C</label>
+            <label :for="item" v-for="item in hobbyOpt" :style="{marginRight: '30px'}">{{item}}
+              <input type="checkbox" v-model="hobby" ref="hobby" :value="item" :id="item" name="hobby">
             </label>
           </td>
         </tr>
