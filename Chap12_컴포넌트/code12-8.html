@@ -8,14 +8,20 @@
     Vue.component('simple-counter', {
         template: '<button v-on:click="counter += 1">{{ counter }}</button>',
         // 각 컴포넌트 인스턴스에 같은 객체 참조를 반환합니다.
+        //Vue component에서 data옵션은 함수를 사용 => 이유: 각각의 고유한 속성을 유지하기 위해
         data: function () {
-            return {
+            return {00000........
                 counter: 0
             }
         }
     })
 
-    new Vue({
+
+.    new Vue({
         el: '#example'
+        //Vue instance에서 data옵션은 리터럴 객체를 사용
+        data: {
+
+        }
     })
 </script>

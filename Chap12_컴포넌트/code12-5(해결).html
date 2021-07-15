@@ -1,0 +1,30 @@
+<script src="https://unpkg.com/vue"></script>
+<div id="example">
+  <table>
+    <tr is="my-row">
+      <td is="my-cell">123</td>
+      <td is="my-cell">456</td>
+    </tr>
+  </table>
+</div>
+<script>
+  Vue.component('my-cell', {
+    name: 'my-cell',
+    render: function(createElement) {
+      console.log(this.$slots.default); //$slots내용을 콘솔에 출력
+      return createElement('td', this.$slots.default);
+    }
+  });
+  // https://v3.ko.vuejs.org/api/instance-properties.html#slots
+  // https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=jjoommnn&logNo=221087514101
+  new Vue({
+    el: "#example",
+    components: {
+      'my-row': {
+        render: function(h) {
+          return h("tr", this.$slots.default);
+        }
+      }
+    }
+  });
+</script>
