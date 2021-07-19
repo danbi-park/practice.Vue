@@ -3,7 +3,6 @@
     <custom-table></custom-table>
 </div>
 <script>
-// NOTE: template에 태그를 다 넣어놓고 전역컴포넌트를 선언함 12-5(해결)이랑 비슷한 해결
     Vue.component('my-row', {
         render: function (h) {
             return h("tr", this.$slots.default);
