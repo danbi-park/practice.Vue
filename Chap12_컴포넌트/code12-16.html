@@ -6,14 +6,15 @@
 </div>
 <script>
     Vue.component('child', {
-        // props 옵션 정의
+       //조상이 있는 데이터가 props를 통해 자손에게 전달한다.
+        // props 옵션 정의 message를 배열로 받는다.(복수기 때문)
         props: ['message'],
         // 데이터와 마찬가지로 prop 속성은 템플릿 안에서 사용할 수 있으며
         // vm의 this.message로 사용할 수 있습니다.
         template: '<span>{{ message }}</span>'
     });
 
-    new Vue({
+    var vm = new Vue({
         el: '#example-2'
     });
 </script>
