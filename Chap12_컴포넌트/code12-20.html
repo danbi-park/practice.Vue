@@ -1,6 +1,6 @@
 <script src="https://unpkg.com/vue"></script>
 <div id="example">
-    <system v-bind:prop-a="123"></system>
+    <system v-bind:prop-a="123"hey</system>
 </div>
 <script>
     Vue.component('system', {
@@ -12,6 +12,7 @@
         },
         render: function (h) {
             return h('span', this.$slots.default);
+            //return h('span', this.$slots.propA);
         }
     });
 
